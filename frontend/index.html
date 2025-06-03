@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Syqlorix Canvas Editor</title>
+        <style>
+            body { font-family: sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+            #sidebar { width: 200px; background-color: #f0f0f0; padding: 15px; box-shadow: 2px 0 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+            #sidebar h2 { margin-top: 0; font-size: 1.2em; color: #333; }
+            #sidebar button { background-color: #0d6efd; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-bottom: 10px; }
+            #sidebar button:hover { background-color: #0a58ca; }
+            #main-content { flex-grow: 1; display: flex; flex-direction: column; }
+            #canvas-area { flex-grow: 1; border: 1px solid #ccc; margin: 15px; background-color: #fff; position: relative; overflow: auto; }
+            #code-output-area, #html-preview-area { flex-basis: 250px; background-color: #333; color: #f0f0f0; padding: 15px; font-family: monospace; overflow: auto; white-space: pre-wrap; font-size: 0.9em; border-top: 1px solid #555; }
+            #output-tabs { display: flex; background-color: #222; border-bottom: 1px solid #555; }
+            .tab-button { background-color: #222; color: #aaa; border: none; padding: 10px 15px; cursor: pointer; }
+            .tab-button.active { background-color: #333; color: white; }
+            .tab-content { display: none; }
+            .tab-content.active { display: block; }
+            iframe { width: 100%; height: 100%; border: none; }
+        </style>
+    </head>
+    <body>
+        <div id="sidebar">
+            <h2>Syqlorix Canvas</h2>
+            <button id="exportCodeBtn">Export Syqlorix Code</button>
+            <p>Drag & Drop UI Coming Soon!</p>
+        </div>
+        <div id="main-content">
+            <div id="canvas-area">
+                <!-- Visual editor canvas will go here -->
+                <p style="text-align: center; margin-top: 50px;">Your design canvas. Drag and drop elements here (future feature).</p>
+            </div>
+            <div id="output-area">
+                <div id="output-tabs">
+                    <button class="tab-button active" data-tab="code">Syqlorix Code</button>
+                    <button class="tab-button" data-tab="html">Rendered HTML Preview</button>
+                </div>
+                <div id="code-output-area" class="tab-content active">
+                    <pre id="syqlorixCode"></pre>
+                </div>
+                <div id="html-preview-area" class="tab-content">
+                    <iframe id="htmlPreviewFrame"></iframe>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+    </html>
